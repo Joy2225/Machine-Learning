@@ -5,7 +5,7 @@ def P1(l):
             if l[i]+l[j] == 10:
                 a=[l[i],l[j]]
                 a.sort()
-                if not a in out: # to check 
+                if not a in out: # to check if any duplicate pair is already present
                     out.append(a)
     return out
 
@@ -28,26 +28,27 @@ def max_min(l):
 
 def P3(l,original,n):
     
-    output = [[0 for j in range(n)] for i in range(n)] 
+    output = [[0 for j in range(n)] for i in range(n)] # final result
     
     print(original)
     for r in range(0,n):
         for c in range(0,n):
             s=0
             for p in range(0,n):
-                s+=l[r][p]*original[p][c]
+                s+=l[r][p]*original[p][c] # to multiply the elements of the matrix and add and store
             output[r][c]=s
-    l=output 
-    print(l)  
+    l=output   
     return output
                     
 def P4(l):
-    a={}
+    check = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" # to check if the input string has any other characters
+    a={} # dictionary to store the frequency of each character
     for i in l:
-        if i in a:
-            a[i]+=1
-        else:
-            a[i]=1
+        if i in check: # to check if the character is a letter
+            if i in a:
+                a[i]+=1
+            else:
+                a[i]=1
     values=list(a.values())
     max=values[0]
     for i in a.values():
@@ -59,13 +60,7 @@ def P4(l):
     for i in a.keys():
         if a[i]==max:
             output.append(i)
-    return output,max
-
-        
-
-            
-    
-
+    return output,max   
 
 
 if __name__ == "__main__":
