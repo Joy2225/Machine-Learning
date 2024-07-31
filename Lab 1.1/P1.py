@@ -30,7 +30,7 @@ def P3(l,original,n):
     
     output = [[0 for j in range(n)] for i in range(n)] # final result
     
-    print(original)
+    #print(original)
     for r in range(0,n):
         for c in range(0,n):
             s=0
